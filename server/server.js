@@ -24,6 +24,15 @@ app.post('/todos', (req, res) => {
     });
 });
 
+app.get('/todos', (req, res) => {
+  Todo.find()
+    .then((todos) => {
+      res.send({todos});
+    }, (err) => {
+      console.log(err);
+    });
+});
+
 
 app.listen(3000, () => {
   console.log('App Started on port 3000');
